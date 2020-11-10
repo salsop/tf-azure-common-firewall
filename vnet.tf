@@ -9,15 +9,16 @@ resource "azurerm_virtual_network" "main" {
   depends_on = [azurerm_resource_group.main]
 }
 
-resource "azurerm_subnet" "appgw" {
-  count                = var.deploy_ingress_appgw ? 1 : 0
-  resource_group_name  = var.resource_group_name
-  name                 = "ingress-appgw-${random_string.name.result}"
-  virtual_network_name = var.virtual_network_name
-  address_prefixes     = [cidrsubnet(var.virtual_network_cidr, 8, 0)]
+# Removed App Gateway Subnet For Now
+# resource "azurerm_subnet" "appgw" {
+#   count                = var.deploy_ingress_appgw ? 1 : 0
+#   resource_group_name  = var.resource_group_name
+#   name                 = "ingress-appgw-${random_string.name.result}"
+#   virtual_network_name = var.virtual_network_name
+#   address_prefixes     = [cidrsubnet(var.virtual_network_cidr, 8, 0)]
 
-  depends_on = [azurerm_virtual_network.main]
-}
+#   depends_on = [azurerm_virtual_network.main]
+# }
 
 resource "azurerm_subnet" "untrust" {
   resource_group_name  = var.resource_group_name

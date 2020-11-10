@@ -24,9 +24,6 @@ variable "create_virtual_network" { default = true }
 variable "virtual_network_name" { default = "vnet" }
 variable "virtual_network_cidr" { default = "172.16.0.0/16" }
 
-# Ingress Application Gateway
-variable "deploy_ingress_appgw" { default = false }
-
 # Ingress Load Balancer
 variable "deploy_ingress_loadbalancer" { default = true }
 

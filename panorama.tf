@@ -63,15 +63,16 @@ resource "panos_panorama_static_route_ipv4" "untrust-loadbalancer" {
   next_hop       = cidrhost(cidrsubnet(var.virtual_network_cidr, 8, 1), 1)
 }
 
-resource "panos_panorama_static_route_ipv4" "untrust-appgw" {
-  count          = var.deploy_ingress_appgw ? 1 : 0
-  template       = panos_panorama_template.base.name
-  destination    = azurerm_subnet.appgw[0].address_prefix
-  name           = "appgw"
-  virtual_router = panos_panorama_virtual_router.untrust.name
-  interface      = panos_panorama_ethernet_interface.ethernet1_1.name
-  next_hop       = cidrhost(cidrsubnet(var.virtual_network_cidr, 8, 1), 1)
-}
+# App GW Removed
+# resource "panos_panorama_static_route_ipv4" "untrust-appgw" {
+#   count          = var.deploy_ingress_appgw ? 1 : 0
+#   template       = panos_panorama_template.base.name
+#   destination    = azurerm_subnet.appgw[0].address_prefix
+#   name           = "appgw"
+#   virtual_router = panos_panorama_virtual_router.untrust.name
+#   interface      = panos_panorama_ethernet_interface.ethernet1_1.name
+#   next_hop       = cidrhost(cidrsubnet(var.virtual_network_cidr, 8, 1), 1)
+# }
 
 resource "panos_panorama_static_route_ipv4" "untrust-10" {
   template       = panos_panorama_template.base.name
@@ -128,15 +129,16 @@ resource "panos_panorama_static_route_ipv4" "trust-loadbalancer" {
   next_hop       = cidrhost(cidrsubnet(var.virtual_network_cidr, 8, 2), 1)
 }
 
-resource "panos_panorama_static_route_ipv4" "trust-appgw" {
-  count          = var.deploy_ingress_appgw ? 1 : 0
-  template       = panos_panorama_template.base.name
-  type           = "next-vr"
-  destination    = azurerm_subnet.appgw[0].address_prefix
-  name           = "appgw"
-  virtual_router = panos_panorama_virtual_router.trust.name
-  next_hop       = panos_panorama_virtual_router.untrust.name
-}
+# Removed App GW
+# resource "panos_panorama_static_route_ipv4" "trust-appgw" {
+#   count          = var.deploy_ingress_appgw ? 1 : 0
+#   template       = panos_panorama_template.base.name
+#   type           = "next-vr"
+#   destination    = azurerm_subnet.appgw[0].address_prefix
+#   name           = "appgw"
+#   virtual_router = panos_panorama_virtual_router.trust.name
+#   next_hop       = panos_panorama_virtual_router.untrust.name
+# }
 
 resource "panos_panorama_static_route_ipv4" "trust-10" {
   template       = panos_panorama_template.base.name
