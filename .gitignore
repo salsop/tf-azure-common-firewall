@@ -1,0 +1,9 @@
+*.DS_Store
+.idea
+.terraform
+tmp
+tmp/**
+*.tfstate*
+*.tfvars
+scripts/unlicense.sh
+

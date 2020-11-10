@@ -1,0 +1,11 @@
+type=dhcp-client
+ip-address=
+default-gateway=
+netmask=
+panorama-server=${panorama_server1}
+panorama-server-2=${panorama_server2}
+tplname=${template_stack}
+dgname=${device_group}
+vm-auth-key=${vm_auth_key}
+vm-series-auto-registration-pin-id=${pin_id}
+vm-series-auto-registration-pin-value=${pin_value}
