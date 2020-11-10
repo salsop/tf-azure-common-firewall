@@ -1,20 +1,20 @@
 variable "panorama" {
   default = {
     # Active Panorama DNS Name or IP
-    primary     = ""
+    primary = ""
     # Standby Panorama DNS Name or IP (can be blank)
-    secondary   = ""
+    secondary = ""
     # VM Auth Key from Panorama to Authenticate VM-Series
     vm_auth_key = ""
     # API Key for Panorama Authentication
-    apikey      = ""
+    apikey = ""
   }
 }
 
 
 # Resource Group Settings
 variable "create_resource_group" { default = true }
-variable "resource_group_name" { description = "Azure Resource Group Name for Deployment"}
+variable "resource_group_name" { description = "Azure Resource Group Name for Deployment" }
 
 # Resource Location
 variable "resource_location" { default = "West Europe" }
@@ -68,10 +68,10 @@ variable "vmseries" {
 
 variable "csp_pin_id" {
   description = "Customer Support Portal Regitration Pin ID"
-  default = ""
+  default     = ""
 }
 
-variable "csp_pin_valuie" {
+variable "csp_pin_value" {
   description = "Customer Support Portal Registration Pin Value"
 }
 

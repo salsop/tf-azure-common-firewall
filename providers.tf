@@ -1,31 +1,31 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "-/azurerm"
+      source  = "-/azurerm"
       version = "= 2.34.0"
     }
     http = {
-      source = "hashicorp/http"
+      source  = "hashicorp/http"
       version = "= 1.2.0"
     }
     local = {
-      source = "hashicorp/local"
+      source  = "hashicorp/local"
       version = "= 1.4.0"
     }
     null = {
-      source = "hashicorp/null"
+      source  = "hashicorp/null"
       version = "= 2.1.0"
     }
     panos = {
-      source = "-/panos"
+      source  = "-/panos"
       version = "= 1.6.3"
     }
     random = {
-      source = "-/random"
+      source  = "-/random"
       version = "= 3.0.0"
     }
     template = {
-      source = "hashicorp/template"
+      source  = "hashicorp/template"
       version = "= 2.1.2"
     }
   }
@@ -38,5 +38,5 @@ provider "azurerm" {
 
 provider "panos" {
   hostname = var.panorama.primary
-  api_key = var.panorama.apikey
+  api_key  = var.panorama.apikey
 }

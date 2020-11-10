@@ -64,8 +64,8 @@ resource "panos_panorama_static_route_ipv4" "untrust-loadbalancer" {
 }
 
 resource "panos_panorama_static_route_ipv4" "untrust-appgw" {
-  count    = var.deploy_ingress_appgw ? 1 : 0
-  template = panos_panorama_template.base.name
+  count          = var.deploy_ingress_appgw ? 1 : 0
+  template       = panos_panorama_template.base.name
   destination    = azurerm_subnet.appgw[0].address_prefix
   name           = "appgw"
   virtual_router = panos_panorama_virtual_router.untrust.name
@@ -74,8 +74,8 @@ resource "panos_panorama_static_route_ipv4" "untrust-appgw" {
 }
 
 resource "panos_panorama_static_route_ipv4" "untrust-10" {
-  template = panos_panorama_template.base.name
-  type = "next-vr"
+  template       = panos_panorama_template.base.name
+  type           = "next-vr"
   destination    = "10.0.0.0/8"
   name           = "10.0.0.0_8"
   virtual_router = panos_panorama_virtual_router.untrust.name
@@ -83,8 +83,8 @@ resource "panos_panorama_static_route_ipv4" "untrust-10" {
 }
 
 resource "panos_panorama_static_route_ipv4" "untrust-172-16" {
-  template = panos_panorama_template.base.name
-  type = "next-vr"
+  template       = panos_panorama_template.base.name
+  type           = "next-vr"
   destination    = "172.16.0.0/12"
   name           = "172.16.0.0_12"
   virtual_router = panos_panorama_virtual_router.untrust.name
@@ -92,8 +92,8 @@ resource "panos_panorama_static_route_ipv4" "untrust-172-16" {
 }
 
 resource "panos_panorama_static_route_ipv4" "untrust-192-168" {
-  template = panos_panorama_template.base.name
-  type = "next-vr"
+  template       = panos_panorama_template.base.name
+  type           = "next-vr"
   destination    = "192.168.0.0/16"
   name           = "192.168.0.0_16"
   virtual_router = panos_panorama_virtual_router.untrust.name
@@ -111,7 +111,7 @@ resource "panos_panorama_virtual_router" "trust" {
 }
 
 resource "panos_panorama_static_route_ipv4" "trust-default" {
-  template = panos_panorama_template.base.name
+  template       = panos_panorama_template.base.name
   type           = "next-vr"
   destination    = "0.0.0.0/0"
   name           = "default"
@@ -120,7 +120,7 @@ resource "panos_panorama_static_route_ipv4" "trust-default" {
 }
 
 resource "panos_panorama_static_route_ipv4" "trust-loadbalancer" {
-  template = panos_panorama_template.base.name
+  template       = panos_panorama_template.base.name
   destination    = "168.63.129.16/32"
   name           = "azure_load_balancer"
   virtual_router = panos_panorama_virtual_router.trust.name
@@ -129,8 +129,8 @@ resource "panos_panorama_static_route_ipv4" "trust-loadbalancer" {
 }
 
 resource "panos_panorama_static_route_ipv4" "trust-appgw" {
-  count    = var.deploy_ingress_appgw ? 1 : 0
-  template = panos_panorama_template.base.name
+  count          = var.deploy_ingress_appgw ? 1 : 0
+  template       = panos_panorama_template.base.name
   type           = "next-vr"
   destination    = azurerm_subnet.appgw[0].address_prefix
   name           = "appgw"
@@ -139,7 +139,7 @@ resource "panos_panorama_static_route_ipv4" "trust-appgw" {
 }
 
 resource "panos_panorama_static_route_ipv4" "trust-10" {
-  template = panos_panorama_template.base.name
+  template       = panos_panorama_template.base.name
   destination    = "10.0.0.0/8"
   name           = "10.0.0.0_8"
   virtual_router = panos_panorama_virtual_router.trust.name
@@ -148,7 +148,7 @@ resource "panos_panorama_static_route_ipv4" "trust-10" {
 }
 
 resource "panos_panorama_static_route_ipv4" "trust-172-16" {
-  template = panos_panorama_template.base.name
+  template       = panos_panorama_template.base.name
   destination    = "172.16.0.0/12"
   name           = "172.16.0.0_12"
   virtual_router = panos_panorama_virtual_router.trust.name
@@ -157,7 +157,7 @@ resource "panos_panorama_static_route_ipv4" "trust-172-16" {
 }
 
 resource "panos_panorama_static_route_ipv4" "trust-192-168" {
-  template = panos_panorama_template.base.name
+  template       = panos_panorama_template.base.name
   destination    = "192.168.0.0/16"
   name           = "192.168.0.0_16"
   virtual_router = panos_panorama_virtual_router.trust.name
