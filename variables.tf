@@ -44,7 +44,7 @@ variable "vmseries" {
 
     # PAN-OS Version 
     # -> az vm image list --publisher "paloaltonetworks" --offer "vmseries-flex" --all --output table
-    version = "10.0.1"
+    version = "10.0.2"
 
     # VM-Series License Option: byol, bundle1 or bundle2
     license   = "bundle2"
