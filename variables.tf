@@ -22,7 +22,7 @@ variable "resource_location" { default = "West Europe" }
 # Virtual Network Settings
 variable "create_virtual_network" { default = true }
 variable "virtual_network_name" { default = "vnet" }
-variable "virtual_network_cidr" { default = "172.16.0.0/16" }
+variable "virtual_network_cidr" { default = "172.16.0.0/16" } # Creates /24 Subnets from this Base CIDR see vnet.tf
 
 # Ingress Load Balancer
 variable "deploy_ingress_loadbalancer" { default = true }
@@ -37,7 +37,7 @@ variable "deploy_egress_loadbalancer" { default = true }
 # VM-Series Deployment Options
 variable "vmseries" {
   default = {
-    no_of_instances = 1
+    no_of_instances = 2
 
     # PAN-OS Offer "vmseries-flex" or the legacy "vmseries1"
     offer = "vmseries-flex"
