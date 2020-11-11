@@ -37,7 +37,7 @@ variable "deploy_egress_loadbalancer" { default = true }
 # VM-Series Deployment Options
 variable "vmseries" {
   default = {
-    no_of_instances = 2
+    no_of_instances = 1
 
     # PAN-OS Offer "vmseries-flex" or the legacy "vmseries1"
     offer = "vmseries-flex"
@@ -64,7 +64,7 @@ variable "vmseries" {
 }
 
 variable "csp_pin_id" {
-  description = "Customer Support Portal Regitration Pin ID"
+  description = "Customer Support Portal Registration Pin ID"
   default     = ""
 }
 
