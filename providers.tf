@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     azurerm = {
-      source  = "-/azurerm"
+      source  = "hashicorp/azurerm"
       version = "= 2.34.0"
     }
     http = {
@@ -17,11 +17,11 @@ terraform {
       version = "= 2.1.0"
     }
     panos = {
-      source  = "-/panos"
+      source  = "paloaltonetworks/panos"
       version = "= 1.6.3"
     }
     random = {
-      source  = "-/random"
+      source  = "hashicorp/random"
       version = "= 3.0.0"
     }
     template = {
