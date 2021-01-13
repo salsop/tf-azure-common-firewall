@@ -6,4 +6,4 @@ tmp/**
 *.tfstate*
 *.tfvars
 scripts/unlicense.sh
-
+.terraform.lock.hcl
