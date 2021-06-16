@@ -65,8 +65,8 @@ module "panos-hub" {
     version         = "10.0.4"
     license         = "bundle2"
     offer           = "vmseries-flex"
-    instance_size = "Standard_DS3_v2"
-    authcodes = ""
+    instance_size   = "Standard_DS3_v2"
+    authcodes       = ""
 
     admin_username = "pandemo"
     admin_password = "Pal0Alto!"
@@ -77,4 +77,5 @@ module "panos-hub" {
   // CSP Self Registration
   csp_pin_id    = ""
   csp_pin_value = ""
+}
 ```
