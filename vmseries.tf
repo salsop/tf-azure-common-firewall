@@ -25,7 +25,7 @@ resource "azurerm_network_interface" "management" {
     name                          = "ipconfig1"
     subnet_id                     = azurerm_subnet.management.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = var.vmseries.public_management ? element(concat(azurerm_public_ip.management.*.id, list("")), count.index) : ""
+    public_ip_address_id          = var.vmseries.public_management ? element(concat(azurerm_public_ip.management.*.id, tolist([""])), count.index) : ""
   }
   depends_on = [azurerm_resource_group.main]
 }
@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "ethernet0_1" {
     subnet_id                     = azurerm_subnet.untrust.id
     private_ip_address_allocation = "Dynamic"
     # public_ip_address_prefix_id = azurerm_public_ip_prefix.ethernet_0_1.id
-    public_ip_address_id = length(azurerm_public_ip.ethernet_0_1) > 0 ? element(concat(azurerm_public_ip.ethernet_0_1.*.id, list("")), count.index) : ""
+    public_ip_address_id = length(azurerm_public_ip.ethernet_0_1) > 0 ? element(concat(azurerm_public_ip.ethernet_0_1.*.id, tolist([""])), count.index) : ""
   }
   depends_on = [azurerm_resource_group.main]
 }
