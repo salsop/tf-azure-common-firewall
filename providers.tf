@@ -18,7 +18,7 @@ terraform {
     }
     panos = {
       source  = "paloaltonetworks/panos"
-      version = "= 1.6.3"
+      version = "1.9.0"
     }
     random = {
       source  = "hashicorp/random"
