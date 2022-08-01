@@ -6,7 +6,7 @@ terraform {
     }
     http = {
       source  = "hashicorp/http"
-      version = "= 1.2.0"
+      version = "3.0.1"
     }
     local = {
       source  = "hashicorp/local"
